@@ -1,6 +1,6 @@
 🎓 **Project 1 @cmda-minor-web 18-19**
 
-## Oba Muziek op Maat
+# oba Muziek op Maat
 
 This application helps a **_family care giver??_** who takes care of someone that suffers from dementia.
 
@@ -8,6 +8,8 @@ This application helps a **_family care giver??_** who takes care of someone tha
 
 > Age UK. (2019, March 5). Music and Dementia from [Age Uk](https://www.ageuk.org.uk/information-advice/health-wellbeing/conditions-illnesses/dementia/dementia-and-music/)
 
-The family care giver can choose 30 songs that bring back these memories. These songs will be put on an iPod by employees of the OBA.
+![screenshot.png](screenshot.png)
+
+The family care giver can choose 30 songs that bring back these memories. A list with these songs will be sent to the OBA. An employees will put these songs on an iPod. Members of the OBA can borrow this iPod for 3 months.
 
 Technieken geleerd bij [CSS to the Rescue](https://github.com/cmda-minor-web/css-to-the-rescue-1819) en [Web App from Scratch](https://github.com/cmda-minor-web/web-app-from-scratch-1819) worden toegepast bij het bouwen van de de prototypes.
