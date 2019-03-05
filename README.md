@@ -4,9 +4,7 @@
 
 This application helps a **_family care giver??_** who takes care of someone that suffers from dementia.
 
-> As a way of helping care for and support people with dementia, music has been shown to often have a dramatic effect. Music can soothe, stimulate and bring to mind long-forgotten memories.
-
-> Age UK. (2019, March 5). Music and Dementia from [Age Uk](https://www.ageuk.org.uk/information-advice/health-wellbeing/conditions-illnesses/dementia/dementia-and-music/)
+> _"As a way of helping care for and support people with dementia, music has been shown to often have a dramatic effect. Music can soothe, stimulate and bring to mind long-forgotten memories."_ [Age Uk](https://www.ageuk.org.uk/information-advice/health-wellbeing/conditions-illnesses/dementia/dementia-and-music/)
 
 ![screenshot.png](screenshot.png)
 
