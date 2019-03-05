@@ -1,1 +1,36 @@
+body {
+  background-color: #f7eee7;
+  font-family: "Montserrat", sans-serif;
+  color: #202020;
+  max-width: 30em;
+  margin: 3em;
+}
 
+a {
+  color: #ff3b30;
+}
+
+h1 {
+  font-weight: 700;
+}
+
+h1 > span {
+  font-size: 2em;
+  color: #ff3b30;
+}
+
+p {
+  margin-bottom: 3em;
+}
+
+button {
+  text-decoration: none;
+  font-size: 1em;
+  color: white;
+  text-align: center;
+  font-family: "Montserrat", sans-serif;
+  padding: 0.5em 2em;
+  border-radius: 0.2em;
+  background-color: #ff3b30;
+  border: 3px solid #ff3b30;
+}
