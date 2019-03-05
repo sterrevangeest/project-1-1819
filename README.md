@@ -1,9 +1,13 @@
-# Project 1 @cmda-minor-web · 2018-2019
+🎓 **Project 1 @cmda-minor-web 18-19**
 
-## Zoek in de de collectie van de OBA
+## Oba Muziek op Maat
 
-Het project vindt plaats bij de Centrale OBA. Maandagochtend is om 10.00 uur de kickoff, vrijdag zijn de presentaties van de resultaten. In een week bouwt iedere student een eigen prototype dat bezoekers kan helpen om items uit de OBA collectie te vinden. Technieken geleerd bij [CSS to the Rescue](https://github.com/cmda-minor-web/css-to-the-rescue-1819) en [Web App from Scratch](https://github.com/cmda-minor-web/web-app-from-scratch-1819) worden toegepast bij het bouwen van de de prototypes.
+This application helps a **_family care giver??_** who takes care of someone that suffers from dementia.
 
-We verzamelen maandagochtend om 09.45 op de 1e verdieping van de Centrale OBA, [Oosterdokskade 143](https://www.google.com/maps/place/OBA+library+of+Amsterdam/@52.3756983,4.9082087,15z/data=!4m2!3m1!1s0x0:0x6b97f693e6ecb494?ved=2ahUKEwioo6OrzubgAhWLNOwKHR6KDQgQ_BIwCnoECAYQCA).
+> As a way of helping care for and support people with dementia, music has been shown to often have a dramatic effect. Music can soothe, stimulate and bring to mind long-forgotten memories.
 
+> Age UK. (2019, March 5). Music and Dementia from [Age Uk](https://www.ageuk.org.uk/information-advice/health-wellbeing/conditions-illnesses/dementia/dementia-and-music/)
 
+The family care giver can choose 30 songs that bring back these memories. These songs will be put on an iPod by employees of the OBA.
+
+Technieken geleerd bij [CSS to the Rescue](https://github.com/cmda-minor-web/css-to-the-rescue-1819) en [Web App from Scratch](https://github.com/cmda-minor-web/web-app-from-scratch-1819) worden toegepast bij het bouwen van de de prototypes.
