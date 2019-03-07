@@ -1,0 +1,23 @@
+[
+  {
+    "id": 1,
+    "year": 1963,
+    "artist": "Bob Dylan",
+    "songtitle": "Like a rolling stone",
+    "fragment": ""
+  },
+  {
+    "id": 2,
+    "year": 1966,
+    "artist": "Rolling Stones",
+    "songtitle": "Paint It Black",
+    "fragment": ""
+  },
+  {
+    "id": 3,
+    "year": 2000,
+    "artist": "Elvis Presley",
+    "songtitle": "In the Ghetto",
+    "fragment": ""
+  }
+]
