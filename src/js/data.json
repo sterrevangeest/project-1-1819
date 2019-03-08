@@ -15,9 +15,37 @@
   },
   {
     "id": 3,
-    "year": 2000,
+    "year": 1969,
     "artist": "Elvis Presley",
     "songtitle": "In the Ghetto",
+    "fragment": ""
+  },
+  {
+    "id": 4,
+    "year": 1967,
+    "artist": "Nina Simone",
+    "songtitle": "Ain't got no I got life",
+    "fragment": ""
+  },
+  {
+    "id": 5,
+    "year": 1978,
+    "artist": "Toto",
+    "songtitle": "Hold the Line",
+    "fragment": ""
+  },
+  {
+    "id": 6,
+    "year": 1977,
+    "artist": "Santana",
+    "songtitle": "She's Not There",
+    "fragment": ""
+  },
+  {
+    "id": 7,
+    "year": 1987,
+    "artist": "Kansas",
+    "songtitle": "Dust in the Wind",
     "fragment": ""
   }
 ]

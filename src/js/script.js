@@ -20,18 +20,23 @@ var handler = {
 };
 
 var filter = {
-  get: function() {
+  get: function(music) {
     var div = document.querySelector("#music");
+    console.log(div);
     div.innerHTML = "";
     return document
       .querySelector("#id-checkbox")
       .addEventListener("click", function(event) {
         var birthyear = Number(document.getElementById("date").value) + 20;
-
+        console.log(birthyear);
+        const result = music.filter(
+          music => birthyear - 10 < music.year && music.year > birthyear + 10
+        );
+        console.log(result);
         console.log(birthyear);
         event.preventDefault();
 
-        api.getMusic(birthyear);
+        render.musicOnYear(result);
       });
   },
   search: function(data) {
@@ -48,10 +53,14 @@ var filter = {
 
           query.split(" ").map(function(word) {
             if (algoTitle.toLowerCase().indexOf(word.toLowerCase()) != -1) {
-              div.innerHTML += `<div><p class="list-group-item"><span>${algoTitle}</span> ${algoArtist}</p></div>`;
+              div.innerHTML += `<div><p><span>${algoTitle}</span> ${algoArtist} <span class="addnumber" id=${
+                data.id
+              } >+ toevoegen</span></p></div>`;
             }
             if (algoArtist.toLowerCase().indexOf(word.toLowerCase()) != -1) {
-              div.innerHTML += `<div><p class="list-group-item"><span>${algoTitle}</span> ${algoArtist}</p></div>`;
+              div.innerHTML += `<div><p><span>${algoTitle}</span> ${algoArtist}<span class="addnumber" id=${
+                data.id
+              } >+ toevoegen</span></p></div>`;
             }
             // else {
             //   div.innerHTML = "";
@@ -61,6 +70,76 @@ var filter = {
         });
         event.preventDefault();
       });
+  },
+  addmusic: function(data) {
+    var divmusic = document.querySelector("#music");
+    var list = document.querySelector("#list");
+    var button = document.getElementsByClassName("addnumber");
+
+    //laad lijst
+    if (localStorage.tracks !== 0 && localStorage.tracks !== undefined) {
+      console.log("er is al een lijst");
+      var localStorageList = JSON.parse(localStorage.getItem("tracks"));
+      console.log(localStorageList);
+
+      var markup = localStorageList
+        .map(function(data) {
+          return ` <div>
+                      <p><span>${
+                        data.songtitle
+                      } </span>${data.artist}<span class="addnumber" id=${data.id} >x</span></p>
+                  </div>`;
+        })
+        .join("");
+      list.insertAdjacentHTML("beforeend", markup);
+    } else {
+      console.log("nog geen lijst");
+    }
+
+    divmusic.addEventListener("click", function(event) {
+      if (event.target.className == "addnumber") {
+        console.log(event.target.id);
+        event.target.classList.add("added"); // button.classList.toggle("added");
+        // Handle click
+        console.log(event.target.id);
+        var id = Number(event.target.id);
+
+        var existingLocalStorage = JSON.parse(localStorage.getItem("tracks"));
+        console.log(existingLocalStorage);
+
+        if (!existingLocalStorage) {
+          var track = [data[id - 1]];
+          console.log(track);
+
+          localStorage.setItem("tracks", JSON.stringify(track)); //track[0]
+
+          var markup = localStorage
+            .map(function(data) {
+              return ` <div>
+                          <p><span>${
+                            data.songtitle
+                          } </span>${data.artist}<span class="addnumber" id=${data.id} >x verwijderen</span></p>
+                      </div>`;
+            })
+            .join("");
+          list.insertAdjacentHTML("beforeend", markup);
+        } else {
+          var found = existingLocalStorage.find(ls => ls.id == id);
+
+          if (!found) {
+            console.log(id, existingLocalStorage);
+            var track = [data[id - 1]][0];
+            existingLocalStorage.push(track);
+            localStorage.setItem(
+              "tracks",
+              JSON.stringify(existingLocalStorage)
+            );
+          } else {
+            console.log("found", found);
+          }
+        }
+      }
+    });
   }
 };
 
@@ -75,7 +154,7 @@ var api = {
         const api = new API({
           key: "1e19898c87464e239192c8bfe422f280"
         });
-        const stream = await api.createStream("search/dementie{3}");
+        const stream = await api.createStream("search/dementie{10}");
         return stream.pipe(store.localStorage).catch(console.error);
       })();
     }
@@ -121,10 +200,12 @@ var render = {
     var markup = data
       .map(function(data) {
         return `
-      <ul>
-          <li><img src="${data.coverimages.coverimage[1]._text}"></li>
-          <li>${data.titles.title._text}</li>
-        </ul>`;
+      <div><a href="${data["detail-page"]._text}">
+          <img src="${data.coverimages.coverimage[1]._text}">
+          <p>${data.titles.title._text}</p>
+           <p class="format">${data.formats.format._text}</p>
+          </a>
+    </div > `;
       })
       .join("");
     sectionBooks.insertAdjacentHTML("beforeend", markup);
@@ -133,19 +214,37 @@ var render = {
   music: function(birthyear) {
     var sectionMusic = document.getElementById("music");
 
-    console.log("music");
     var music = JSON.parse(localStorage.getItem("music"));
-    console.log(music);
-    const result = music.filter(music => music.year != birthyear);
-    console.log(result);
-    filter.search(music);
 
-    filter.get(birthyear);
+    // const result = music.filter(music => music.year != birthyear);
+
+    filter.get(music);
+    console.log(music);
     var markup = music
       .map(function(data) {
         return ` <div>
-                    <p><span>${data.songtitle} </span>${data.artist}</p>
+
+                    <p> <img src="../src/css/play-button.svg" class="playbutton" alt=""><span>${
+                      data.songtitle
+                    } </span>${data.artist}<span class="addnumber" id=${data.id} >+ opslaan</span></p>
                 </div>`;
+      })
+      .join("");
+    sectionMusic.insertAdjacentHTML("beforeend", markup);
+    filter.addmusic(music);
+    filter.search(music);
+  },
+  musicOnYear: function(music) {
+    var sectionMusic = document.getElementById("music");
+    sectionMusic.innerHTML = "";
+    console.log(music);
+    var markup = music
+      .map(function(data) {
+        return ` <div>
+                    <p><span>${
+                      data.songtitle
+                    } </span>${data.artist}<span class="addnumber" id=${data.id} >+ opslaan</span></p>
+              </div>`;
       })
       .join("");
 
